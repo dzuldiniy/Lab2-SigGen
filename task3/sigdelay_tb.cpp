@@ -31,6 +31,7 @@ int main(int argc, char **argv, char **env) {
   top->wr = 1;
   top->rd = 1;
   top->offset = 64;
+  top->incr = 1;
   
   // intialize variables for analogue output
   vbdInitMicIn(RAM_SZ);
@@ -44,7 +45,7 @@ int main(int argc, char **argv, char **env) {
       top->eval ();
     }
     top->mic_signal = vbdMicValue();
-    top->offset = abs(vbdValue());     // adjust delay by changing incr
+    top->offset = abs(vbdValue());     // adjust delay by changing offset
 
     // plot RAM input/output, send sample to DAC buffer, and print cycle count
     vbdPlot(int (top->mic_signal), 0, 255);

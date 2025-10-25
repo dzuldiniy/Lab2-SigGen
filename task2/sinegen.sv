@@ -8,8 +8,8 @@ module sinegen #(
     input logic                     en,
     input logic [DATA_WIDTH-1:0]    incr,
     input logic [DATA_WIDTH-1:0]    v, //vbdValue()
-    output logic [DATA_WIDTH-1:0]   doutsin,
-    output logic [DATA_WIDTH-1:0]   doutcos   
+    output logic [DATA_WIDTH-1:0]   dout1,
+    output logic [DATA_WIDTH-1:0]   dout2   
 );
 
 logic [ADDRESS_WIDTH-1:0] addr;
@@ -22,16 +22,12 @@ counter addrCounter (
     .count (addr)
 );
 
-rom sineRom (
+rom2ports rom (
     .clk (clk),
-    .addr (addr),
-    .dout (doutsin)
-);
-
-rom cosineRom (
-    .clk (clk),
-    .addr (addr + v),
-    .dout (doutcos)
+    .addr1 (addr),
+    .addr2 (addr + v),
+    .dout1 (dout1),
+    .dout2 (dout2)
 );
 
 endmodule

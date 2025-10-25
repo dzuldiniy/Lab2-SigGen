@@ -18,12 +18,11 @@ class Vsinegen___024root final : public VerilatedModule {
     VL_IN8(en,0,0);
     VL_IN8(incr,7,0);
     VL_IN8(v,7,0);
-    VL_OUT8(doutsin,7,0);
-    VL_OUT8(doutcos,7,0);
+    VL_OUT8(dout1,7,0);
+    VL_OUT8(dout2,7,0);
     CData/*7:0*/ sinegen__DOT__addr;
     CData/*0:0*/ __Vclklast__TOP__clk;
-    VlUnpacked<CData/*7:0*/, 256> sinegen__DOT__sineRom__DOT__rom_array;
-    VlUnpacked<CData/*7:0*/, 256> sinegen__DOT__cosineRom__DOT__rom_array;
+    VlUnpacked<CData/*7:0*/, 256> sinegen__DOT__rom__DOT__rom_array;
 
     // INTERNAL VARIABLES
     Vsinegen__Syms* const vlSymsp;
